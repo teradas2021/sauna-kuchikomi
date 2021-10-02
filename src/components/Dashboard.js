@@ -72,6 +72,7 @@ const Dashboard = () => {
             </form>
 
         }else{
+            console.log("エラーだよ");
             dom = <button onClick={signInWithGoogle}>Googleログイン</button>
         }
         return dom
@@ -89,7 +90,7 @@ const Dashboard = () => {
     return(
         <div className={classes.root}>
             {formRender()}
-            <ToDoList kuchikomis={kuchikomis} fetch={fetch} />
+            {/* <ToDoList kuchikomis={kuchikomis} fetch={fetch} /> */}
         </div>
     )
 };

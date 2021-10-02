@@ -49,8 +49,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './components/Footer';
 import Home from './components/Home';
-// import Dashboard from './components/Dashboard';
+import Dashboard from './components/Dashboard';
 import Header from './components/Header';
+import Private from './components/Private';
 
 class App extends Component {
   render() {
@@ -61,8 +62,9 @@ class App extends Component {
             <Navbar /><hr/>
             <Route exact path='/' component={Home}/>
             <Route path='/Footer' component={Footer}/>
-            {/* <Route path='/Dashboard' component={Dashboard}/> */}
-            <Route path='/Header' component={Header}/>
+            <Route path='/Dashboard' component={Dashboard}/>
+            {/* <Route path='/Header' component={Header}/> */}
+            <Route path='/Private' component={Private}/>
           </div>
         </Router>
       </div>
