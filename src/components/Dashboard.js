@@ -60,6 +60,8 @@ const Dashboard = () => {
 
     const formRender = () => {
         let dom
+        // console.log(dig(currentUser, 'currentUser', 'uid'));
+        
         if( dig(currentUser, 'currentUser', 'uid')){
             dom = <form className={classes.form}>
                 <TextField placeholder = "お店の名前" className={classes.input} value={inputName} onChange={(event) => setInputName(event.currentTarget.value)}/>

@@ -22,6 +22,7 @@ export const signInWithGoogle = () => {
         .then((res) => {
         console.log(res.user);
         // console.log(res.user.uid);
+        console.log("ログインできたよ");
     })
     .catch((error) => {
         console.log(error.message);

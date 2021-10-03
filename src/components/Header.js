@@ -26,6 +26,8 @@ const Header = () => {
         if( dig(currentUser, 'currentUser', 'uid')){
             
             buttonDom = <Button className={classes.button} variant='contained' onClick={logOut}>ログアウト</Button>
+            
+            
         }else{
             buttonDom = <Button className={classes.button} variant='contained' onClick={signInWithGoogle}>ログイン</Button>
         }
