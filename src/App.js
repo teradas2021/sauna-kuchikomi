@@ -1,7 +1,7 @@
 // import React from 'react';
-// import { AuthProvider } from './providers/AuthProvider';
+import { AuthProvider } from './providers/AuthProvider';
 // import './App.css';
-// import './service/firebase';
+import './service/firebase';
 // import Header from './components/Header';
 // import Dashboard from './components/Dashboard';
 // import Footer from './components/Footer';
@@ -60,11 +60,14 @@ class App extends Component {
         <Router>
           <div>
             <Navbar /><hr/>
-            <Route exact path='/' component={Home}/>
-            <Route path='/Footer' component={Footer}/>
-            <Route path='/Dashboard' component={Dashboard}/>
-            {/* <Route path='/Header' component={Header}/> */}
-            <Route path='/Private' component={Private}/>
+            <AuthProvider>
+              <Route exact path='/' component={Home}/>
+              <Route path='/Footer' component={Footer}/>
+              <Route path='/Dashboard' component={Dashboard}/>
+              <Route path='/Header' component={Header}/>
+              <Route path='/Private' component={Private}/>
+            </AuthProvider>
+            
           </div>
         </Router>
       </div>
