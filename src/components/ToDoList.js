@@ -65,7 +65,7 @@ const ToDoList = (props) => {
     })
     return (
         <div className={classes.root}>
-            <h2>あなたの投稿</h2>
+            <h2>最近の投稿</h2>
             <ul className={classes.ul}>{kuchikomilist}</ul>
         </div>
     )

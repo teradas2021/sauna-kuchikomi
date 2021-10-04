@@ -39,7 +39,9 @@ const PrivateDashboard = () => {
     const [kuchikomis, setKuchikomis] = useState([]);
     console.log(inputName);
     console.log(inputLowTemp);
-        console.log(kuchikomis);
+    console.log(kuchikomis);
+    console.log(dig(currentUser, 'currentUser', 'uid'));
+    
 
     useEffect(() => {
         //Todo一覧を取得
@@ -47,6 +49,8 @@ const PrivateDashboard = () => {
     }, [currentUser])
 
     const privateFetch = async() => {
+        console.log('privateFetchだよ');
+        
         if( dig(currentUser, 'currentUser', 'uid')) {
             console.log("OK");
             const uid = currentUser.currentUser.uid;
@@ -87,7 +91,7 @@ const PrivateDashboard = () => {
         
         await setInputName("");
         await setinputKind("");        
-        fetch();
+        privateFetch();
     }
 
     return(
