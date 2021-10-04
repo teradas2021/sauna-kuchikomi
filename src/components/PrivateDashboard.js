@@ -8,6 +8,7 @@ import { signInWithGoogle } from '../service/firebase';
 import dig from "object-dig"
 import { AuthContext } from "../providers/AuthProvider";
 import ToDoList from "./ToDoList"
+import PrivateList from "./PrivateList";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -28,7 +29,7 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-const Dashboard = () => {
+const PrivateDashboard = () => {
     const classes = useStyles();
     const currentUser = useContext(AuthContext);
     const [inputName, setInputName] = useState("");
@@ -42,15 +43,15 @@ const Dashboard = () => {
 
     useEffect(() => {
         //Todo一覧を取得
-        fetch();
+        privateFetch();
     }, [currentUser])
 
-    const fetch = async() => {
+    const privateFetch = async() => {
         if( dig(currentUser, 'currentUser', 'uid')) {
             console.log("OK");
             const uid = currentUser.currentUser.uid;
             console.log(uid);
-            const data = await Api.initGet(uid);
+            const data = await Api.privateInitGet(uid);
             // const data = await Api.initGet(currentUser.currentUser.uid);
             
             await setKuchikomis(data);
@@ -92,8 +93,8 @@ const Dashboard = () => {
     return(
         <div className={classes.root}>
             {formRender()}
-            <ToDoList kuchikomis={kuchikomis} fetch={fetch} />
+            <PrivateList kuchikomis={kuchikomis} fetch={privateFetch} />
         </div>
     )
 };
-export default Dashboard;
+export default PrivateDashboard;

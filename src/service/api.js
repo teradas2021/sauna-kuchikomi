@@ -23,26 +23,27 @@ export const initGet = async() => {
     });
 }
 
-// export const initGet = async(uid) => {
+export const privateInitGet = async(uid) => {
     
-//     const todo = await db.collection("todo")
-//     .orderBy("createAt", "desc")
-//     .where("uid", "==", uid);
+    const kuchikomi = await db.collection("kuchikomi")
+    .orderBy("createAt", "desc")
+    .where("uid", "==", uid);
     
-//     return todo.get().then((snapShot) => {
-//         let todos = [];
-//         snapShot.forEach((doc) => {
-//             console.log(doc);
-//             // console.log(doc.date());
-//             todos.push({
-//                 id: doc.id,
-//                 content: doc.data().content,
-//                 isComplete: doc.data().isComplete,
-//             });
-//         });
-//         return todos;
-//     });
-// }
+    return kuchikomi.get().then((snapShot) => {
+        let kuchikomis = [];
+        snapShot.forEach((doc) => {
+            console.log(doc);
+            // console.log(doc.date());
+            kuchikomis.push({
+                id: doc.id,
+                content: doc.data().content,
+                kind: doc.data().kind,
+                lowTemp: doc.data().lowTemp,
+            });
+        });
+        return kuchikomis;
+    });
+}
 
 export const addKuchikomi = (content,uid,kind,lowTemp) => {
     // Add a new document with a generated id.
