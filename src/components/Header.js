@@ -37,7 +37,7 @@ const Header = () => {
         <AppBar position="static">
             <Toolbar className={classes.toolbar}>
                 <Typography variant="h6">
-                    サウナ口コミ
+                    Sun口コミ
                 </Typography>
                 {buttonRender()}
             </Toolbar>

@@ -9,6 +9,7 @@ import dig from "object-dig"
 import { AuthContext } from "../providers/AuthProvider";
 import ToDoList from "./ToDoList"
 import PrivateList from "./PrivateList";
+import ImageArea from "./imageArea";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -37,6 +38,7 @@ const PrivateDashboard = () => {
     // const [inputLowTemp, setinputLowTemp] = useToggle("");
     const [inputLowTemp, setinputLowTemp] = useState("");
     const [kuchikomis, setKuchikomis] = useState([]);
+    const [images, setImages] = useState([]);
     console.log(inputName);
     console.log(inputLowTemp);
     console.log(kuchikomis);
@@ -96,6 +98,7 @@ const PrivateDashboard = () => {
 
     return(
         <div className={classes.root}>
+            <ImageArea images={images} setImages={setImages} />
             {formRender()}
             <PrivateList kuchikomis={kuchikomis} fetch={privateFetch} />
         </div>
