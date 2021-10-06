@@ -6,7 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate"
 // import {useDispatch} from "react-redux";
 // import {showLoadingAction, hideLoadingAction} from "../../reducks/loading/actions";
-// import {ImagePreview} from "./index";
+import ImagePreview from "./ImagePreview";
 
 const useStyles = makeStyles({
     icon: {
@@ -61,11 +61,13 @@ const ImageArea = (props) => {
 
     return (
         <div>
-            {/* <div className="p-grid__list-images">
+            <div className="p-grid__list-images">
                 {images.length > 0 && (
-                    images.map(image => <ImagePreview delete={deleteImage} id={image.id} path={image.path} key={image.id} /> )
+                    images.map(image => <ImagePreview 
+                    // delete={deleteImage} 
+                    id={image.id} path={image.path} key={image.id} /> )
                 )}
-            </div> */}
+            </div>
             <div className="u-text-right">
                 <span>商品画像を登録する</span>
                 <IconButton className={classes.icon}>
