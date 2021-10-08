@@ -89,7 +89,7 @@ const PrivateDashboard = () => {
 
     const post = async() => {
         console.log(inputLowTemp);
-        await Api.addKuchikomi(inputName, currentUser.currentUser.uid, inputKind, inputLowTemp);
+        await Api.addKuchikomi(inputName, currentUser.currentUser.uid, inputKind, inputLowTemp, images);
         
         await setInputName("");
         await setinputKind("");        

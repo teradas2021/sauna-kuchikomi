@@ -17,6 +17,7 @@ export const initGet = async() => {
                 content: doc.data().content,
                 kind: doc.data().kind,
                 lowTemp: doc.data().lowTemp,
+                Images: doc.data().Images,
             });
         });
         return kuchikomis;
@@ -39,13 +40,14 @@ export const privateInitGet = async(uid) => {
                 content: doc.data().content,
                 kind: doc.data().kind,
                 lowTemp: doc.data().lowTemp,
+                Images: doc.data().Images,
             });
         });
         return kuchikomis;
     });
 }
 
-export const addKuchikomi = (content,uid,kind,lowTemp) => {
+export const addKuchikomi = (content,uid,kind,lowTemp,Images) => {
     // Add a new document with a generated id.
     db.collection("kuchikomi").add({
         content: content,
@@ -53,6 +55,7 @@ export const addKuchikomi = (content,uid,kind,lowTemp) => {
         kind: kind,
         lowTemp: lowTemp,
         createAt: firebase.firestore.FieldValue.serverTimestamp(),
+        Images: Images,
     })
     .then((docRef) => {
         console.log("Document written with ID: ", docRef.id);

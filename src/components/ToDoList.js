@@ -7,6 +7,12 @@ import dig from "object-dig"
 import { AuthContext } from "../providers/AuthProvider";
 import { makeStyles } from "@material-ui/core";
 import imageArea from "./imageArea";
+import CardMedia from '@material-ui/core/CardMedia';
+import NoImage from '../no_image.png'
+// import ImageListItem from '@mui/material/ImageListItem';
+
+
+
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -25,6 +31,8 @@ const useStyles = makeStyles(() => ({
 
 const ToDoList = (props) => {
     const classes = useStyles();
+    // const images = (props.images.length > 0) ? props.images : [NoImage]
+
     const deleteHandle = (id) => {
         Api.todoDelete(id);
         props.fetch();
@@ -37,16 +45,17 @@ const ToDoList = (props) => {
     }
     
     const kuchikomilist = props.kuchikomis.map((kuchikomi) => {
+        // const images = (props.images.length > 0) ? props.images : [NoImage]
         return (            
             // <li key={todo.id}>{todo.content}<button type="button" onClick={() => deleteHandle(todo.id)}>削除</button></li>
         <ListItem key={kuchikomi.id}>
-            {/* <imageArea>
-
-            </imageArea> */}
-            <ListItemAvatar>
+            {/* <CardMedia className={classes.media}
+                image={images[0].path} /> */}
+        {/* // </ListItem> */}
+                                
                 {/* <Checkbox name="checkedA" /> */}
                 {/* <Checkbox checked={todo.isComplete} onChange={ () => checkHandle(todo.id) } /> */}
-            </ListItemAvatar>
+            {/* </ListItemAvatar> */}
             {/* <ListItemText primary={todo.content}/> */}
             <ListItemText primary={kuchikomi.content}/>
             <ListItemText primary={kuchikomi.kind}/>
