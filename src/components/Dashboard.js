@@ -55,6 +55,7 @@ const Dashboard = () => {
             
             await setKuchikomis(data);
             console.log(data);
+            // console.log(data.content);
         }
     }
 

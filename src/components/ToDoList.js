@@ -10,6 +10,7 @@ import imageArea from "./imageArea";
 import CardMedia from '@material-ui/core/CardMedia';
 import NoImage from '../no_image.png'
 // import ImageListItem from '@mui/material/ImageListItem';
+import Avatar from '@material-ui/core/Avatar';
 
 
 
@@ -45,12 +46,22 @@ const ToDoList = (props) => {
     }
     
     const kuchikomilist = props.kuchikomis.map((kuchikomi) => {
+        const images = props.kuchikomis.images;
         // const images = (props.images.length > 0) ? props.images : [NoImage]
+        console.log(images);
+        
         return (            
             // <li key={todo.id}>{todo.content}<button type="button" onClick={() => deleteHandle(todo.id)}>削除</button></li>
         <ListItem key={kuchikomi.id}>
-            {/* <CardMedia className={classes.media}
-                image={images[0].path} /> */}
+            
+            
+            {/* <ListItemAvatar>
+                <Avatar alt="kakakakakku" 
+                src={images[0].path} />
+            </ListItemAvatar> */}
+         
+                {/* image={images[0].path} /> */}
+
         {/* // </ListItem> */}
                                 
                 {/* <Checkbox name="checkedA" /> */}
