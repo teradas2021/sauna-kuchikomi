@@ -7,6 +7,8 @@ import dig from "object-dig"
 import { AuthContext } from "../providers/AuthProvider";
 import { makeStyles } from "@material-ui/core";
 import imageArea from "./imageArea";
+import NoImage from '../no_image.png'
+import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -37,15 +39,31 @@ const PrivateList = (props) => {
     }
     
     const kuchikomilist = props.kuchikomis.map((kuchikomi) => {
-        return (            
+        
+        // console.log(props.kuchikomis);
+        // const images = (kuchikomi.images.length > 0) ? kuchikomi.images : [NoImage]
+        // const images = kuchikomi.images;    
+        // console.log(images);
+        console.log(kuchikomi);
+        // console.log(kuchikomi.length);
+        console.log(kuchikomi.Images);
+        console.log(kuchikomi.Images.length);
+        // console.log(kuchikomi.Images[0].path);
+        const images = (kuchikomi.Images.length > 0) ? kuchikomi.Images[0].path : [NoImage];
+        console.log(images);
+        
+
+        return (
+            // const images = (kuchikomi.images.length > 0) ? props.kuchikomis.images : [NoImage]
             // <li key={todo.id}>{todo.content}<button type="button" onClick={() => deleteHandle(todo.id)}>削除</button></li>
         <ListItem key={kuchikomi.id}>
             {/* <imageArea>
 
             </imageArea> */}
+           
             <ListItemAvatar>
-                {/* <Checkbox name="checkedA" /> */}
-                {/* <Checkbox checked={todo.isComplete} onChange={ () => checkHandle(todo.id) } /> */}
+                <Avatar alt="kakakakakku" 
+                src={images} />
             </ListItemAvatar>
             {/* <ListItemText primary={todo.content}/> */}
             <ListItemText primary={kuchikomi.content}/>

@@ -30,6 +30,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 
+
 const ToDoList = (props) => {
     const classes = useStyles();
     // const images = (props.images.length > 0) ? props.images : [NoImage]
@@ -46,19 +47,19 @@ const ToDoList = (props) => {
     }
     
     const kuchikomilist = props.kuchikomis.map((kuchikomi) => {
-        const images = props.kuchikomis.images;
-        // const images = (props.images.length > 0) ? props.images : [NoImage]
-        console.log(images);
+        // const images = props.kuchikomis.images;
+        // const images = (props.kuchikomis.images.length > 0) ? props.kuchikomis.images : [NoImage]
+        // console.log(images);
         
         return (            
             // <li key={todo.id}>{todo.content}<button type="button" onClick={() => deleteHandle(todo.id)}>削除</button></li>
         <ListItem key={kuchikomi.id}>
             
             
-            {/* <ListItemAvatar>
-                <Avatar alt="kakakakakku" 
-                src={images[0].path} />
-            </ListItemAvatar> */}
+            <ListItemAvatar>
+                {/* <Avatar alt="kakakakakku" 
+                src={images[0].path} /> */}
+            </ListItemAvatar>
          
                 {/* image={images[0].path} /> */}
 

@@ -43,6 +43,8 @@ const PrivateDashboard = () => {
     console.log(inputLowTemp);
     console.log(kuchikomis);
     console.log(dig(currentUser, 'currentUser', 'uid'));
+    console.log(images);
+    
     
 
     useEffect(() => {
