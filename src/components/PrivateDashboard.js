@@ -10,6 +10,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import ToDoList from "./ToDoList"
 import PrivateList from "./PrivateList";
 import ImageArea from "./imageArea";
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -27,6 +28,9 @@ const useStyles = makeStyles(() => ({
     },
     input: {
         marginRight: 10,
+    },
+    postbutton: {
+        marginTop:40
     }
 }));
 
@@ -73,13 +77,29 @@ const PrivateDashboard = () => {
         
         if( dig(currentUser, 'currentUser', 'uid')){
             dom = <form className={classes.form}>
-                <TextField placeholder = "お店の名前" className={classes.input} value={inputName} onChange={(event) => setInputName(event.currentTarget.value)}/>
-                <TextField placeholder = "種類" className={classes.input} value={inputKind} onChange={(event) => setinputKind(event.currentTarget.value)}/>
-                <Checkbox onChange={ () => setinputLowTemp(prevState => !prevState) } />
+                <Grid container>
+                    <Grid item xs={12}>
+                        <TextField placeholder = "お店の名前" className={classes.input} value={inputName} onChange={(event) => setInputName(event.currentTarget.value)}/>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField placeholder = "種類" className={classes.input} value={inputKind} onChange={(event) => setinputKind(event.currentTarget.value)}/>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <h1>タオル備え付け</h1>
+                        <Checkbox onChange={ () => setinputLowTemp(prevState => !prevState) } />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <ImageArea images={images} setImages={setImages} />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Button className={classes.postbutton}
+                        variant="contained" color='primary' size='small'
+                        disabled={inputName.length > 0 ? false : true}
+                        type="button" onClick={() => post()}>追加</Button>
+                    </Grid>
+                    
+                </Grid>
                 
-                <Button variant="contained" color='primary' size='small'
-                disabled={inputName.length > 0 ? false : true}
-                type="button" onClick={() => post()}>追加</Button>
             </form>
 
         }else{
@@ -100,7 +120,7 @@ const PrivateDashboard = () => {
 
     return(
         <div className={classes.root}>
-            <ImageArea images={images} setImages={setImages} />
+            {/* <ImageArea images={images} setImages={setImages} /> */}
             {formRender()}
             <PrivateList kuchikomis={kuchikomis} fetch={privateFetch} />
         </div>

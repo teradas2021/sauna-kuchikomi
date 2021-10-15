@@ -7,13 +7,18 @@ import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate"
 // import {useDispatch} from "react-redux";
 // import {showLoadingAction, hideLoadingAction} from "../../reducks/loading/actions";
 import ImagePreview from "./ImagePreview";
+import { flexbox } from '@material-ui/system';
 
 const useStyles = makeStyles({
     icon: {
         marginRight: 8,
         height: 48,
         width: 48
-    }
+    },
+    preimage: {
+        width: "30%",
+        height:"30%"
+    },
 })
 
 const ImageArea = (props) => {
@@ -61,15 +66,17 @@ const ImageArea = (props) => {
 
     return (
         <div>
-            <div className="p-grid__list-images">
+            {/* <div className="p-grid__list-images"> */}
+            <div className={classes.preimage}>
                 {images.length > 0 && (
                     images.map(image => <ImagePreview 
                     // delete={deleteImage} 
+                    className={classes.preimage}
                     id={image.id} path={image.path} key={image.id} /> )
                 )}
             </div>
             <div className="u-text-right">
-                <span>商品画像を登録する</span>
+                {/* <span>画像を投稿する</span> */}
                 <IconButton className={classes.icon}>
                     <label>
                         <AddPhotoAlternateIcon />
