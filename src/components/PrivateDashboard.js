@@ -85,8 +85,9 @@ const PrivateDashboard = () => {
                         <TextField placeholder = "種類" className={classes.input} value={inputKind} onChange={(event) => setinputKind(event.currentTarget.value)}/>
                     </Grid>
                     <Grid item xs={12}>
-                        <h1>タオル備え付け</h1>
+                        <h3>タオル備え付け
                         <Checkbox onChange={ () => setinputLowTemp(prevState => !prevState) } />
+                        </h3>
                     </Grid>
                     <Grid item xs={12}>
                         <ImageArea images={images} setImages={setImages} />
