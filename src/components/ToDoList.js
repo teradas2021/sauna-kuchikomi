@@ -50,15 +50,16 @@ const ToDoList = (props) => {
         // const images = props.kuchikomis.images;
         // const images = (props.kuchikomis.images.length > 0) ? props.kuchikomis.images : [NoImage]
         // console.log(images);
-        
+        const images = (kuchikomi.Images.length > 0) ? kuchikomi.Images[0].path : [NoImage];
+
         return (            
             // <li key={todo.id}>{todo.content}<button type="button" onClick={() => deleteHandle(todo.id)}>削除</button></li>
         <ListItem key={kuchikomi.id}>
             
             
             <ListItemAvatar>
-                {/* <Avatar alt="kakakakakku" 
-                src={images[0].path} /> */}
+                <Avatar alt="kakakakakku" 
+                src={images} />
             </ListItemAvatar>
          
                 {/* image={images[0].path} /> */}
