@@ -115,7 +115,8 @@ const PrivateDashboard = () => {
         await Api.addKuchikomi(inputName, currentUser.currentUser.uid, inputKind, inputLowTemp, images);
         
         await setInputName("");
-        await setinputKind("");        
+        await setinputKind("");  
+        // await setImages("");
         privateFetch();
     }
 

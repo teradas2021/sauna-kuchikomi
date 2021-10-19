@@ -8,18 +8,34 @@ import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate"
 // import {showLoadingAction, hideLoadingAction} from "../../reducks/loading/actions";
 import ImagePreview from "./ImagePreview";
 import { flexbox } from '@material-ui/system';
+import ImageList from '@material-ui/core/ImageList';
+import ImageListItem from '@material-ui/core/ImageListItem';
 
-const useStyles = makeStyles({
-    icon: {
-        marginRight: 8,
-        height: 48,
-        width: 48
+// const useStyles = makeStyles({
+//     icon: {
+//         marginRight: 8,
+//         height: 48,
+//         width: 48
+//     },
+//     preimage: {
+//         width: "30%",
+//         height:"30%"
+//     },
+// })
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'space-around',
+      overflow: 'hidden',
+    //   backgroundColor: theme.palette.background.paper,
     },
-    preimage: {
-        width: "30%",
-        height:"30%"
+    imageList: {
+      width: 500,
+      height: 150,
     },
-})
+  }));
 
 const ImageArea = (props) => {
     const classes = useStyles();
@@ -66,15 +82,32 @@ const ImageArea = (props) => {
 
     return (
         <div>
-            {/* <div className="p-grid__list-images"> */}
-            <div className={classes.preimage}>
-                {images.length > 0 && (
-                    images.map(image => <ImagePreview 
-                    // delete={deleteImage} 
-                    className={classes.preimage}
-                    id={image.id} path={image.path} key={image.id} /> )
-                )}
+            <div className={classes.root}>
+                <ImageList rowHeight={160} className={classes.imageList} cols={3}>
+                    {images.map((image) => (
+                    <ImageListItem key={image.id} cols={image.cols || 1}>
+                        <img src={image.path} alt={image.path} />
+                    </ImageListItem>
+                    ))}
+                </ImageList>
             </div>
+            
+            {/* <div>
+                <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
+                {images.map((image) => (
+                    <ImageListItem key={image.id}>
+                    <img
+                        src={`${image.path}?w=164&h=164&fit=crop&auto=format`}
+                        srcSet={`${image.path}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                        // alt={image.title}
+                        loading="lazy"
+                    />
+                    </ImageListItem>
+                ))}
+                </ImageList>
+            </div> */}
+            {/* <div className="p-grid__list-images"> */}
+            
             <div className="u-text-right">
                 {/* <span>画像を投稿する</span> */}
                 <IconButton className={classes.icon}>
