@@ -11,6 +11,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import NoImage from '../no_image.png'
 // import ImageListItem from '@mui/material/ImageListItem';
 import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom'
 
 
 
@@ -46,6 +48,7 @@ const ToDoList = (props) => {
         props.fetch();
     }
     
+    
     const kuchikomilist = props.kuchikomis.map((kuchikomi) => {
         // const images = props.kuchikomis.images;
         // const images = (props.kuchikomis.images.length > 0) ? props.kuchikomis.images : [NoImage]
@@ -70,8 +73,12 @@ const ToDoList = (props) => {
                 {/* <Checkbox checked={todo.isComplete} onChange={ () => checkHandle(todo.id) } /> */}
             {/* </ListItemAvatar> */}
             {/* <ListItemText primary={todo.content}/> */}
-            <ListItemText primary={kuchikomi.content}/>
+            <ListItemText primary={kuchikomi.content} />
             <ListItemText primary={kuchikomi.kind}/>
+            <Link to="/DetailDashboard" onClick={() => Api.openDetailDashboard(kuchikomi.id)}>Detail</Link>
+            {/* <Button onClick={() => Api.openDetailDashboard(kuchikomi.id)}>
+                Detail
+            </Button> */}
             <Checkbox checked={kuchikomi.lowTemp}/>
             {/* <Checkbox>
                 primary={kuchikomi.lowTemp}
@@ -81,6 +88,7 @@ const ToDoList = (props) => {
             <IconButton edge="end" aria-label="delete" onClick={() => deleteHandle(kuchikomi.id)}>
                 <DeleteIcon />
             </IconButton>
+
             </ListItemSecondaryAction>
         </ListItem>
             )

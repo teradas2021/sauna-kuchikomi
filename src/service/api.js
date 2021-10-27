@@ -75,3 +75,19 @@ export const toggleComplete = async(id) => {
         isComplete: todo.data().isComplete ? false : true,
     });
 }
+
+export const openDetailDashboard = async(id) => {
+    const kuchikomi = await db.collection("kuchikomi").doc(id);
+    let detail = [];
+    kuchikomi.get().then((doc) => {
+        if (doc.exists) {
+            console.log("Document data:", doc.data());
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+    return detail
+};
